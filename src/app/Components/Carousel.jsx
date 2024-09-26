@@ -19,13 +19,11 @@ export default function Carousel(){
     useEffect(()=>{
         const timer = setTimeout(()=>{
             handleClickNext();
-        }, 5000);
+        }, 8000);
         return () =>{
             clearTimeout(timer);
         }
     }, [currentMovie]);
-
-    console.log(movies);
 
     const handleClickNext = () => {
         currentMovie == movies.length - 1 ? setCurrentMovie(0) : setCurrentMovie(currentMovie + 1);
@@ -37,18 +35,26 @@ export default function Carousel(){
 
     return (
         <>
-        {movies.length > 0 && (
-            <div className="flex justify-between bg-gradient-to-b from-[#000000] to-[#180303] w-full min-h-screen mx-auto">
-            <button className="button-prev-next" onClick={handleClickPrev}>Previous</button>
-            <div className="grid place-items-center text-white">
-                <img src={`https://image.tmdb.org/t/p/w500${movies[currentMovie].poster_path}`} alt={movies[currentMovie].title} />   
-                <h2>{movies[currentMovie].title}</h2>
-                <p>{movies[currentMovie].overview}</p>
-                <button onClick={()=>alert(`Detalles de ${movies[currentMovie].title}`)}>More info</button>
+            <div className="w-full flex justify-center items-center">
+                <button className="absolute left-20 bg-gray-800 text-white p-5 rounded-full" onClick={handleClickPrev}>
+                    &#10094;
+                </button>
+
+                {movies.length > 0 && (
+                <div className="text-center space-y-4 text-white mt-5">
+                    <img src={`https://image.tmdb.org/t/p/w500${movies[currentMovie].poster_path}`} alt={movies[currentMovie].title} className="h-96 mx-auto" />   
+                    <h2 className="text-xl font-bold">{movies[currentMovie].title}</h2>
+                    <p className="text-sm text-gray-500">{movies[currentMovie].overview}</p>
+                    <button className="bg-white p-3 m-3 rounded-full text-black" onClick={()=>alert(`Detalles de ${movies[currentMovie].title}`)}>
+                        More info
+                    </button>
+                </div>
+                )}
+
+                <button className="absolute right-20 bg-gray-800 text-white p-5 rounded-full" onClick={handleClickNext}>
+                    &#10095;
+                </button>
             </div>
-            <button className="button-prev-next" onClick={handleClickNext}>Next</button>
-            </div>
-        )}
         </>
     );
 }

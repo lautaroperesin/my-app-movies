@@ -7,7 +7,3 @@
     before:-bottom-2 before:w-0 before:h-0.5 before:bg-white before:rounded-full
     before:transition-all before:duration-300 hover:before:w-full
 }
-
-.button-prev-next{
-    @apply bg-slate-800
-}
