@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function NavBar(){
     return(
-        <nav className="sticky top-0 w-full bg-black p-5 z-50">
-            <div className="container mx-auto flex items-center justify-center">
-                <ul className="flex items-center gap-x-8">
+        <nav className="nav-bar-container">
+            <div className="container-ul-nav-bar">
+                <ul className="ul-nav-bar">
                     <li>
                         <Link href="/" className="link">Home</Link>
                     </li>

@@ -1,0 +1,10 @@
+.carousel-container{
+    @apply w-full flex justify-center items-center
+}
+
+.button-left{
+    @apply absolute left-20 bg-gray-800 text-white p-5 rounded-full
+}
+.button-right{
+    @apply absolute right-20 bg-gray-800 text-white p-5 rounded-full
+}

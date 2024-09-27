@@ -1,0 +1,17 @@
+.nav-bar-container{
+    @apply sticky top-0 w-full bg-black p-5 z-50
+}
+
+.container-ul-nav-bar{
+    @apply container mx-auto flex items-center justify-center
+}
+
+.ul-nav-bar{
+    @apply flex items-center gap-x-8
+}
+
+.link{
+    @apply relative text-white transition-colors duration-300 before:absolute before:left-0
+    before:-bottom-2 before:w-0 before:h-0.5 before:bg-white before:rounded-full
+    before:transition-all before:duration-300 hover:before:w-full
+}
