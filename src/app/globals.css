@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '../app/components/MovieCarousel/styles.css';
-@import '../app/components/NavBar/styles.css';
+@import '../components/MovieCarousel/styles.css';
+@import '../components/NavBar/styles.css';
+@import '../components/HorizontalSlider/styles.css';
 
 
 body{
