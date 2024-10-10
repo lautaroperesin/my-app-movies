@@ -1,6 +1,5 @@
 const getAuthOptions = ()=> {
-    const options = {method: 'GET', headers: {accept: 'application/json'}};
-    return options;
+    return {method: 'GET', headers: {accept: 'application/json'}};
 }
 
 export async function getNowPlayingMovies(){

@@ -1,5 +1,5 @@
 export default function Related(){
     return (
-        <h1>Movie related</h1>
+        <h1 className="text-white">Movie related</h1>
     );
 }

@@ -1,4 +1,5 @@
 'use client';
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function MoviesCarousel(){
@@ -45,8 +46,8 @@ export default function MoviesCarousel(){
                     <img src={`https://image.tmdb.org/t/p/w500${currentMovie[position].poster_path}`} alt={currentMovie[position].title} className="h-96 mx-auto" />   
                     <h2 className="text-xl font-bold">{currentMovie[position].title}</h2>
                     <p className="text-sm text-gray-500">{currentMovie[position].overview}</p>
-                    <button className="bg-white p-3 m-3 rounded-full text-black" onClick={()=>alert(`Detalles de ${currentMovie[position].title}`)}>
-                        More info
+                    <button className="bg-white p-3 m-3 rounded-full text-black" >
+                        <Link href={`/movies/${currentMovie[position].id}`}>More info</Link>
                     </button>
                 </div>
                 )}
