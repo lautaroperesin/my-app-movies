@@ -1,20 +1,17 @@
 'use client';
 import React, {useEffect, useState} from 'react';
 
-export default function HorizontalSlider(){
+export default function HorizontalSlider({fetchMovies}){
     const [movies, setMovies] = useState([]);
 
-    useEffect(()=>{
-        const fetchMovies = async () => {
-            const options = {method: 'GET', headers: {accept: 'application/json'}};
-            const response = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=9bc55808c3aabf92be422d07aefbe9c5', options);
-            const {results} = await response.json();
-            setMovies(results);
-        }
+    useEffect(() => {
+        const loadMovies = async () => {
+            const data = await fetchMovies();
+            setMovies(data);
+        };
 
-        fetchMovies();
-    }, []);
-
+        loadMovies();
+    }, [fetchMovies]);
 
     return (
         <div className="my-8">
