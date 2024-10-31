@@ -1,5 +1,7 @@
 export default function Movies(){
     return (
-        <h1>Movies</h1>
+        <Section>
+            <Title>NOW PLAYING</Title>
+      </Section>
     );
 }
