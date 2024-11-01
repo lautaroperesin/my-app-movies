@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function MoviesCarousel(){
-    const [currentMovie, setCurrentMovie] = useState([]);
+    const [movies, setMovies] = useState([]);
     const [position, setPosition] = useState(0);
 
     useEffect(()=>{
@@ -11,7 +11,7 @@ export default function MoviesCarousel(){
             const options = {method: 'GET', headers: {accept: 'application/json'}};
             const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=9bc55808c3aabf92be422d07aefbe9c5', options);
             const {results} = await response.json();
-            setCurrentMovie(results);
+            setMovies(results);
         }
 
         fetchMovies();
@@ -27,11 +27,11 @@ export default function MoviesCarousel(){
     }, [position]);
 
     const handleClickNext = () => {
-        position == currentMovie.length - 1 ? setPosition(0) : setPosition(position + 1);
+        position == movies.length - 1 ? setPosition(0) : setPosition(position + 1);
     }
 
     const handleClickPrev = () => {
-        position == 0 ? setPosition(currentMovie.length - 1) : setPosition(position - 1);
+        position == 0 ? setPosition(movies.length - 1) : setPosition(position - 1);
     }
 
     return (
@@ -41,12 +41,12 @@ export default function MoviesCarousel(){
                     &#10094;
                 </button>
 
-                {currentMovie.length > 0 && (
+                {movies.length > 0 && (
                 <div className="text-center space-y-4 text-white mt-5">
-                    <img src={`https://image.tmdb.org/t/p/w500${currentMovie[position].poster_path}`} alt={currentMovie[position].title} className="h-96 mx-auto" />   
-                    <h2 className="text-xl font-bold">{currentMovie[position].title}</h2>
-                    <p className="text-sm text-gray-500">{currentMovie[position].overview}</p>
-                    <Link href={`/movies/${currentMovie[position].id}`} >
+                    <img src={`https://image.tmdb.org/t/p/w500${movies[position].poster_path}`} alt={movies[position].title} className="h-96 mx-auto" />   
+                    <h2 className="text-xl font-bold">{movies[position].title}</h2>
+                    <p className="text-sm text-gray-500">{movies[position].overview}</p>
+                    <Link href={`/movies/${movies[position].id}`} >
                     <button className="bg-white p-3 m-3 rounded-full text-black" >More info</button>
                     </Link>
                 </div>
