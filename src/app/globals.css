@@ -5,6 +5,7 @@
 @import '../components/MovieCarousel/styles.css';
 @import '../components/NavBar/styles.css';
 @import '../components/HorizontalSlider/styles.css';
+@import '../components/MovieDetailCard/styles.css';
 
 
 body{

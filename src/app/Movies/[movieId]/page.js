@@ -1,3 +1,4 @@
+import MovieDetailCard from "@/components/MovieDetailCard";
 import Title from "@/components/Title";
 
 export default async function MovieDetail({params}){
@@ -7,19 +8,9 @@ export default async function MovieDetail({params}){
     const movie = await res.json();
 
     return (
-        <div className="container">
+        <>
         <Title>MOVIE DETAILS</Title>
-        <div className='text-white'>
-        <h1>{movie.title}</h1>
-        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-        <div >
-        <p>{movie.overview}</p>
-        <p>Release date: {movie.release_date}</p>
-        <p>Rating: {movie.vote_average}</p>
-        <p>Genres: {movie.genres.map((genre) => genre.name).join(', ')}</p>
-        <p>Country: {movie.origin_country}</p>
-        </div>
-    </div>
-    </div>
+        <MovieDetailCard movie={movie} />
+        </>
     );
 }
