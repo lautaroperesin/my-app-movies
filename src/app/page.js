@@ -15,19 +15,19 @@ export default function Home() {
     
     <Section>
       <Title>TOP RATED MOVIES</Title>
-      <HorizontalSlider fetchMovies={getTopRatedMovies}/>
+      <HorizontalSlider fetchMovies={getTopRatedMovies} type = 'movie' link = '/movies'/>
     </Section>
     <Section>
       <Title>POPULAR MOVIES</Title>
-      <HorizontalSlider fetchMovies={getPopularMovies}/>
+      <HorizontalSlider fetchMovies={getPopularMovies} type = 'movie' link = '/movies'/>
     </Section>
     <Section>
       <Title>POPULAR SERIES</Title>
-      <HorizontalSlider fetchMovies={getPopularSeries}/>
+      <HorizontalSlider fetchMovies={getPopularSeries} type = 'serie' link = '/series'/>
     </Section>
     <Section>
       <Title>TOP RATED SERIES</Title>
-      <HorizontalSlider fetchMovies={getTopRatedSeries}/>
+      <HorizontalSlider fetchMovies={getTopRatedSeries} type = 'serie' link = '/series'/>
     </Section>
     </>
   );

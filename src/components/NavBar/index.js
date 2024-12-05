@@ -14,6 +14,9 @@ export default function NavBar(){
                     <li>
                         <Link href="/series" className="link">Series</Link>
                     </li>
+                    <li>
+                        <Link href="/search" className="link">Search</Link>
+                    </li>
                 </ul>
             </div>
         </nav>

@@ -1,4 +1,4 @@
-import MovieDetailCard from "@/components/MovieDetailCard";
+import DetailCard from "@/components/DetailCard";
 import Title from "@/components/Title";
 
 export default async function MovieDetail({params}){
@@ -10,7 +10,7 @@ export default async function MovieDetail({params}){
     return (
         <>
         <Title>MOVIE DETAILS</Title>
-        <MovieDetailCard movie={movie} />
+        <DetailCard media={movie} type='movie' />
         </>
     );
 }
