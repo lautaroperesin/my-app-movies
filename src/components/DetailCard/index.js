@@ -8,7 +8,7 @@ export default function DetailCard({ media, type}) {
         <div className="movie-poster">
           <img 
             src={`https://image.tmdb.org/t/p/w500${media.poster_path}`} 
-            alt={isMovie ? "Movie Poster" : "TV Series Poster"}
+            alt={isMovie ? "Movie Poster" : "Serie Poster"}
           />
         </div>
         <div className="movie-details">
@@ -20,7 +20,7 @@ export default function DetailCard({ media, type}) {
           <span className="italics-text">
             <i>
               {media.origin_country.join(", ")} 
-              ---- Rating - <span>{media.vote_average}</span>/10 
+               --- Rating - <span>{media.vote_average.toFixed(1)}</span>/10 
             </i>
           </span>
           <ul className="details-ul">
@@ -44,6 +44,7 @@ export default function DetailCard({ media, type}) {
               </li>
             )}
           </ul>
+          <h3>Overview</h3>
           <p className="movie-overview">{media.overview}</p>
         </div>
       </div>

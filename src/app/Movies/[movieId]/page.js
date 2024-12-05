@@ -10,7 +10,7 @@ export default async function MovieDetail({params}){
     return (
         <>
         <Title>MOVIE DETAILS</Title>
-        <DetailCard media={movie} type='movie' />
+        <DetailCard media={movie} type='movie'/>
         </>
     );
 }
