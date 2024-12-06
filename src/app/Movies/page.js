@@ -3,10 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import CardsGrid from '@/components/CardsGrid';
+import {getTopRatedMovies} from '@/utils/fetch-movies';
 
 export default function MoviesPage(){
   const [upcomingMovies, setUpcomingMovies] = useState([]);
@@ -22,11 +24,8 @@ export default function MoviesPage(){
         const upcomingData = await upcomingResponse.json();
         setUpcomingMovies(upcomingData.results);
 
-        const topRatedResponse = await fetch(
-          `https://api.themoviedb.org/3/movie/top_rated?api_key=9bc55808c3aabf92be422d07aefbe9c5`
-        );
-        const topRatedData = await topRatedResponse.json();
-        setTopRatedMovies(topRatedData.results);
+        const topRatedResponse = await getTopRatedMovies();
+        setTopRatedMovies(topRatedResponse);
 
         setLoading(false);
       } catch (error) {
@@ -44,8 +43,9 @@ export default function MoviesPage(){
 
   return (
     <div className="container mx-auto px-4 py-8">
+
+      {/* Slider de Upcoming Movies usando libreria Swiper */}
       <h1 className="text-3xl font-bold mb-8">UPCOMING</h1>
-      
       <Swiper
         modules={[Navigation, Autoplay]}
         spaceBetween={10}
@@ -61,7 +61,7 @@ export default function MoviesPage(){
             spaceBetween: 30,
           },
         }}
-        className="mb-12"
+        className="mb-10"
       >
         {upcomingMovies.map((movie) => (
           <SwiperSlide key={movie.id}>
@@ -74,7 +74,7 @@ export default function MoviesPage(){
                   objectFit="cover"
                   className="transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute bg-black bg-opacity-50 text-white p-4">
+                <div className="relative bg-black bg-opacity-100 text-white p-4">
                   <h2 className="text-xl font-bold">{movie.title}</h2>
                   <p className="text-sm">Release date: {movie.release_date}</p>
                 </div>
@@ -84,33 +84,10 @@ export default function MoviesPage(){
         ))}
       </Swiper>
 
-      <h2 className="text-2xl font-bold mb-6 mt-12">TOP RATED MOVIES</h2>
       
-      {/* Top Rated Movies Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        {topRatedMovies.map((movie) => (
-          <Link href={`/movies/${movie.id}`} key={movie.id}>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
-              <div className="relative h-[350px] w-full">
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="bg-black p-3">
-                <h3 className="font-semibold text-lg line-clamp-2">{movie.title}</h3>
-                <div className="flex items-center justify-between mt-2">
-                  <span className="text-yellow-500">★ {movie.vote_average.toFixed(1)}</span>
-                  <span className="text-sm text-gray-500">{movie.release_date.split('-')[0]}</span>
-                </div>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+      {/* Grilla de Top Rated Movies */}
+      <h2 className="text-2xl font-bold mb-6 mt-12">TOP RATED</h2>
+      <CardsGrid media={topRatedMovies} />
     </div>
   );
 };

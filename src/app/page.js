@@ -1,34 +1,25 @@
 'use client';
 import HorizontalSlider from "@/components/HorizontalSlider/index.js";
 import MoviesCarousel from "../components/MovieCarousel/index.js";
-import Section from "../components/Section/index.js";
-import Title from "../components/Title/index.js";
 import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies, getPopularSeries, getTopRatedSeries } from "@/utils/fetch-movies.js";
 
 export default function Home() {
   return(
     <>
-    <Section>
-      <Title>NOW PLAYING</Title>
+      <h1>NOW PLAYING</h1>
       <MoviesCarousel fetchMovies={getNowPlayingMovies}/>
-    </Section>
     
-    <Section>
-      <Title>TOP RATED MOVIES</Title>
+      <h2>TOP RATED MOVIES</h2>
       <HorizontalSlider fetchMovies={getTopRatedMovies} type = 'movie' link = '/movies'/>
-    </Section>
-    <Section>
-      <Title>POPULAR MOVIES</Title>
+
+      <h2>POPULAR MOVIES</h2>
       <HorizontalSlider fetchMovies={getPopularMovies} type = 'movie' link = '/movies'/>
-    </Section>
-    <Section>
-      <Title>POPULAR SERIES</Title>
+
+      <h2>POPULAR SERIES</h2>
       <HorizontalSlider fetchMovies={getPopularSeries} type = 'serie' link = '/series'/>
-    </Section>
-    <Section>
-      <Title>TOP RATED SERIES</Title>
+
+      <h2>TOP RATED SERIES</h2>
       <HorizontalSlider fetchMovies={getTopRatedSeries} type = 'serie' link = '/series'/>
-    </Section>
     </>
   );
 }
