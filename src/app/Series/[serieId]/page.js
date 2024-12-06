@@ -1,5 +1,4 @@
 import DetailCard from "@/components/DetailCard";
-import Title from "@/components/Title";
 
 export default async function SerieDetail(  {params} ) {
     const { serieId } = params;
@@ -8,7 +7,6 @@ export default async function SerieDetail(  {params} ) {
 
     return (
         <>
-        <Title>SERIE DETAILS</Title>
         <DetailCard media={serie} type = 'serie'/>
         </>
     );
