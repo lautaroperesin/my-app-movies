@@ -1,13 +1,11 @@
 import DetailCard from "@/components/DetailCard";
+import { getDetails, getCredits } from "@/utils/fetch-data";
 
-export default async function SerieDetail(  {params} ) {
+export default async function SerieDetail( {params} ) {
     const { serieId } = params;
-    const res = await fetch(`https://api.themoviedb.org/3/tv/${serieId}?api_key=9bc55808c3aabf92be422d07aefbe9c5`);
-    const serie = await res.json();
+    const type = 'tv';
+    const serie = await getDetails(serieId, type);
+    const credits = await getCredits(serieId, type);
 
-    return (
-        <>
-        <DetailCard media={serie} type = 'serie'/>
-        </>
-    );
+    return <DetailCard media={serie} type={type} credits={credits.cast}/>
 }

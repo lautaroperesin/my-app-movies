@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import CardsGrid from '@/components/CardsGrid';
-import {getTopRatedMovies, getUpcomingMovies} from '@/utils/fetch-movies';
+import {getTopRatedMovies, getUpcomingMovies} from '@/utils/fetch-data';
 import Slider from '@/components/Slider';
 
 export default function MoviesPage(){
@@ -40,7 +40,7 @@ export default function MoviesPage(){
       <h1 className="text-3xl font-bold mb-8">UPCOMING</h1>
       <Slider media={upcomingMovies} type='movie' />
 
-      {/* Grilla de Top Rated Movies */}
+      {/* Grilla Top Rated Movies */}
       <h2 className="text-2xl font-bold mb-6 mt-12">TOP RATED</h2>
       <CardsGrid media={topRatedMovies} type='movie' />
     </div>

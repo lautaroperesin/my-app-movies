@@ -6,12 +6,15 @@ import 'swiper/css/navigation';
 
 export default function Slider({ media, type }){
   const isMovie = type === 'movie';
+
   const getTitle = (item) => {
     return isMovie ? item.title : item.name;
   }
+
   const getLink = (item) => {
     return isMovie ? `/movies/${item.id}` : `/series/${item.id}`;
   }
+  
   const getReleaseDate = (item) => {
     return isMovie ? item.release_date : item.first_air_date;
   }

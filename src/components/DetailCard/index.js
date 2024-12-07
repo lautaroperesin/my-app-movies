@@ -1,7 +1,10 @@
-export default function DetailCard({ media, type }) {   
+import CastSlider from "../CastSlider";
+
+export default function DetailCard({ media, type, credits }) {   
   const isMovie = type === 'movie';
   
   return (
+    <div className="detail-card-wrapper">
       <div className="detail-card-container">
           <div className="detail-card-poster">
               <img 
@@ -54,5 +57,10 @@ export default function DetailCard({ media, type }) {
               <p className="detail-card-overview">{media.overview}</p>
           </div>
       </div>
+      <div className="detail-card-cast">
+        <h3 className="detail-card-cast-title">CAST</h3>
+        <CastSlider cast={credits} />
+        </div>
+    </div>
   );
 }

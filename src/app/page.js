@@ -1,25 +1,34 @@
-'use client';
+
 import HorizontalSlider from "@/components/HorizontalSlider/index.js";
 import MoviesCarousel from "../components/MovieCarousel/index.js";
-import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies, getPopularSeries, getTopRatedSeries } from "@/utils/fetch-movies.js";
+import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies, getPopularSeries, getTopRatedSeries } from "@/utils/fetch-data.js";
 
-export default function Home() {
+export default async function Home() {
+
+  const [topRatedMovies, popularMovies, nowPlayingMovies, popularSeries, topRatedSeries] = await Promise.all([
+    getTopRatedMovies(),
+    getPopularMovies(),
+    getNowPlayingMovies(),
+    getPopularSeries(),
+    getTopRatedSeries()
+  ]);
+
   return(
     <>
       <h1>NOW PLAYING</h1>
-      <MoviesCarousel fetchMovies={getNowPlayingMovies}/>
+      <MoviesCarousel movies={nowPlayingMovies}/>
     
       <h2>TOP RATED MOVIES</h2>
-      <HorizontalSlider fetchMovies={getTopRatedMovies} type = 'movie' link = '/movies'/>
+      <HorizontalSlider media={topRatedMovies} type='movie'/>
 
       <h2>POPULAR MOVIES</h2>
-      <HorizontalSlider fetchMovies={getPopularMovies} type = 'movie' link = '/movies'/>
+      <HorizontalSlider media={popularMovies} type='movie'/>
 
       <h2>POPULAR SERIES</h2>
-      <HorizontalSlider fetchMovies={getPopularSeries} type = 'serie' link = '/series'/>
+      <HorizontalSlider media={popularSeries} type='serie'/>
 
       <h2>TOP RATED SERIES</h2>
-      <HorizontalSlider fetchMovies={getTopRatedSeries} type = 'serie' link = '/series'/>
+      <HorizontalSlider media={topRatedSeries} type='serie'/>
     </>
   );
 }

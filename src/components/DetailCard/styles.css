@@ -84,6 +84,15 @@
     line-height: 1.6;
 }
 
+.detail-card-cast-title{
+    /*un subtitulo lindo, cenrado y en negrita*/
+    color: #ccc;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    font-weight: bold;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .detail-card-container {

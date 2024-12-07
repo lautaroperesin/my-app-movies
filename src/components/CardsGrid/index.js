@@ -27,7 +27,7 @@ export default function CardsGrid({ media, type }) {
               className="w-full h-full object-cover"
             />
           <div className="p-3">
-            <h3 className="font-semibold text-lg line-clamp-2">{getTitle(movie)}</h3>
+            <h3 className="font-semibold text-lg line-clamp-2 text-white">{getTitle(movie)}</h3>
             <div className="flex items-center justify-between mt-2">
               <span className="text-yellow-500">★ {movie.vote_average.toFixed(1)}</span>
               <span className="text-sm text-gray-500">{getReleaseDate(movie).split('-')[0]}</span>

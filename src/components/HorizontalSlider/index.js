@@ -1,25 +1,13 @@
-'use client';
-import React, {useEffect, useState} from 'react';
-
-export default function HorizontalSlider({fetchMovies, type , link}){
-    const [movies, setMovies] = useState([]);
-
-    useEffect(() => {
-        const loadMovies = async () => {
-            const data = await fetchMovies();
-            setMovies(data);
-        };
-
-        loadMovies();
-    }, [fetchMovies]);
-
+export default function HorizontalSlider({media, type}){
     const getTitle = (item) => {
         return type === 'movie' ? item.title : item.name;
     }
 
+    const link = type === 'movie' ? '/movies' : '/series';
+
     return (
         <div className="flex overflow-x-auto space-x-4 scrollbar-hide mt-12 p-4">
-            {movies.map((movie) => (
+            {media.map((movie) => (
                 <div key={movie.id} className="group relative w-86 h-96 overflow-hidden flex-shrink-0">
                     <a href={`${link}/${movie.id}`} className="block w-full h-full">
                     <div

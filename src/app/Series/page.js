@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { getAiringTodaySeries, getOnTheAirSeries } from '@/utils/fetch-movies';
+import { getAiringTodaySeries, getOnTheAirSeries } from '@/utils/fetch-data';
 import Slider from '@/components/Slider';
 import CardsGrid from '@/components/CardsGrid';
 
