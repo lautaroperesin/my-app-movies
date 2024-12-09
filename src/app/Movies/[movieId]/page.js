@@ -1,5 +1,8 @@
+import CastSlider from "@/components/CastSlider";
 import DetailCard from "@/components/DetailCard";
-import { getDetails, getCredits } from "@/utils/fetch-data";
+import HorizontalSlider from "@/components/HorizontalSlider";
+import ReviewSection from "@/components/ReviewSection";
+import { getDetails, getCredits, getReviews, getSimilarTitles } from "@/utils/fetch-data";
 
 export default async function MovieDetail({params}){
 
@@ -7,6 +10,15 @@ export default async function MovieDetail({params}){
     const type = 'movie';
     const movie = await getDetails(movieId, type);
     const credits = await getCredits(movieId, type);
+    const reviews = await getReviews(movieId, type);
+    const similarTitles = await getSimilarTitles(movieId, type);
 
-    return <DetailCard media={movie} type={type} credits={credits.cast}/>
+    return(
+        <>
+        <DetailCard media={movie} type={type}/>
+        <CastSlider cast={credits.cast}/>
+        <HorizontalSlider media={similarTitles.results} type={type} title='SIMILAR TITLES'/>
+        <ReviewSection reviews={reviews.results}/>
+        </>
+    )
 }

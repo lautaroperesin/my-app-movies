@@ -1,6 +1,6 @@
 import CastSlider from "../CastSlider";
 
-export default function DetailCard({ media, type, credits }) {   
+export default function DetailCard({ media, type }) {   
   const isMovie = type === 'movie';
   
   return (
@@ -22,7 +22,7 @@ export default function DetailCard({ media, type, credits }) {
               
               <div className="detail-card-metadata">
                   {media.origin_country.join(", ")} 
-                  {' '}--- Rating - <span>{media.vote_average.toFixed(1)}</span>/10 
+                  {' '}- <span>{media.vote_average.toFixed(1)}</span>/10 
               </div>
 
               <div className="detail-card-genres">
@@ -57,10 +57,6 @@ export default function DetailCard({ media, type, credits }) {
               <p className="detail-card-overview">{media.overview}</p>
           </div>
       </div>
-      <div className="detail-card-cast">
-        <h3 className="detail-card-cast-title">CAST</h3>
-        <CastSlider cast={credits} />
-        </div>
     </div>
   );
 }

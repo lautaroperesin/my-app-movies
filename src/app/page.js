@@ -15,20 +15,15 @@ export default async function Home() {
 
   return(
     <>
-      <h1>NOW PLAYING</h1>
       <MoviesCarousel movies={nowPlayingMovies}/>
-    
-      <h2>TOP RATED MOVIES</h2>
-      <HorizontalSlider media={topRatedMovies} type='movie'/>
 
-      <h2>POPULAR MOVIES</h2>
-      <HorizontalSlider media={popularMovies} type='movie'/>
+      <HorizontalSlider media={topRatedMovies} type='movie' title='TOP RATED MOVIES'/>
 
-      <h2>POPULAR SERIES</h2>
-      <HorizontalSlider media={popularSeries} type='serie'/>
+      <HorizontalSlider media={popularMovies} type='movie' title='POPULAR MOVIES'/>
 
-      <h2>TOP RATED SERIES</h2>
-      <HorizontalSlider media={topRatedSeries} type='serie'/>
+      <HorizontalSlider media={popularSeries} type='serie' title='POPULAR SERIES'/>
+
+      <HorizontalSlider media={topRatedSeries} type='serie' title='TOP RATED SERIES'/>
     </>
   );
 }

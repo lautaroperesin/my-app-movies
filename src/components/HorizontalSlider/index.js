@@ -1,4 +1,4 @@
-export default function HorizontalSlider({media, type}){
+export default function HorizontalSlider({media, type, title}){
     const getTitle = (item) => {
         return type === 'movie' ? item.title : item.name;
     }
@@ -6,7 +6,9 @@ export default function HorizontalSlider({media, type}){
     const link = type === 'movie' ? '/movies' : '/series';
 
     return (
-        <div className="flex overflow-x-auto space-x-4 scrollbar-hide mt-12 p-4">
+        <div className="mt-12">
+        <h2 className="text-lg font-semibold mb-2 mt-4 text-white text-center">{title}</h2>
+        <div className="flex overflow-x-auto space-x-4 scrollbar-hide p-4">
             {media.map((movie) => (
                 <div key={movie.id} className="group relative w-86 h-96 overflow-hidden flex-shrink-0">
                     <a href={`${link}/${movie.id}`} className="block w-full h-full">
@@ -25,6 +27,7 @@ export default function HorizontalSlider({media, type}){
                     </a>
                 </div>
             ))}
+        </div>
         </div>
     );
 }
