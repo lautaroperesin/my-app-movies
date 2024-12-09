@@ -1,5 +1,3 @@
-import CastSlider from "../CastSlider";
-
 export default function DetailCard({ media, type }) {   
   const isMovie = type === 'movie';
   

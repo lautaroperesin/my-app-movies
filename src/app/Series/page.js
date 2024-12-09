@@ -33,7 +33,7 @@ export default function Series(){
     }
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 text-white">
 
         {/* On The Air Series */}
         <h1 className="text-2xl font-bold mb-4">ON THE AIR SERIES</h1>

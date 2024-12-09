@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function CastSlider({ cast }) {
+export default function CastSlider({ cast, mediaId, mediaUrl }) {
     return (
         <div className="w-full overflow-x-auto">
             <h3 className="text-lg font-semibold mb-2 mt-4 text-white text-center">CAST</h3>
@@ -10,7 +10,7 @@ export default function CastSlider({ cast }) {
                         key={actor.id} 
                         className="inline-block flex-shrink-0 w-40 snap-start group relative rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl"
                     >
-                        <Link key={actor.id} href={`/cast/${actor.id}`} className="block">
+                        <Link key={actor.id} href={`/${mediaUrl}/${mediaId}/cast/${actor.id}`} className="block">
                             <div className="relative">
                                 {actor.profile_path ? (
                                     <img 

@@ -16,7 +16,7 @@ export default async function MovieDetail({params}){
     return(
         <>
         <DetailCard media={movie} type={type}/>
-        <CastSlider cast={credits.cast}/>
+        <CastSlider cast={credits.cast} mediaId={movieId} mediaUrl='movies'/>
         <HorizontalSlider media={similarTitles.results} type={type} title='SIMILAR TITLES'/>
         <ReviewSection reviews={reviews.results}/>
         </>
