@@ -8,9 +8,9 @@ export default function HorizontalSlider({media, type, title}){
     return (
         <div className="mt-12">
         <h2 className="text-lg font-semibold mb-2 mt-4 text-white text-center">{title}</h2>
-        <div className="flex overflow-x-auto space-x-4 scrollbar-hide p-4">
+        <div className="flex overflow-x-auto space-x-4 p-4">
             {media.map((movie) => (
-                <div key={movie.id} className="group relative w-86 h-96 overflow-hidden flex-shrink-0">
+                <div key={movie.id} className="group relative w-86 h-96 overflow-hidden flex-shrink-0 rounded-xl">
                     <a href={`${link}/${movie.id}`} className="block w-full h-full">
                     <div
                         className="absolute inset-0 bg-cover bg-center transition-all duration-300 transform opacity-0 group-hover:opacity-100 group-hover:scale-105"
