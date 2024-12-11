@@ -1,6 +1,18 @@
 export default function HorizontalSlider({media, type, title}){
 
     const link = type === 'movie' ? '/movies' : '/series';
+    
+    //verificar si hay contenido con un mensaje en la pantalla
+    if(media.length === 0){
+        return (
+            <div className="mt-12">
+                <h2 className="text-lg font-semibold mb-2 mt-4 text-white text-center">{title}</h2>
+                <div className="flex items-center justify-center h-56">
+                    <h2 className="text-white text-xl font-semibold">No content available</h2>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="mt-12">

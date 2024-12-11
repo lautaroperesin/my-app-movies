@@ -23,7 +23,7 @@ export default function SearchPage() {
       //obtener url
       const getLink = (item) => {
         return item.media_type === 'movie' ? `/movies/${item.id}`
-        : item.media_type === 'serie' ? `/series/${item.id}`
+        : item.media_type === 'tv' ? `/series/${item.id}`
         : `movies/x/cast/${item.id}`;
       }
   
@@ -41,7 +41,7 @@ export default function SearchPage() {
              <Link
              key={result.id}
              href={getLink(result)}
-             className="bg-gray-800 p-4 rounded-md text-white hover:bg-gray-700 transition"
+             className="bg-black p-4 rounded-md text-white hover:bg-gray-700 transition"
            >
             <div>
               <img
