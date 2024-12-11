@@ -6,11 +6,11 @@ export default async function ActorPageMovies({ params }) {
 
     const { actorId } = params;
     
-    // Informacion del actor
-    const actor = await getDetails(actorId, 'person');
-
-    // Peliculas en las que ha participado el actor
-    const actorCredits = await getActorCredits(actorId, 'movie_credits');
+    // Informacion del actor y Peliculas en las que ha participado el actor
+    const [actor, actorCredits] = await Promise.all([
+      getDetails(actorId, 'person'),
+      getActorCredits(actorId, 'movie_credits'),
+    ]);
 
     return (
       <>

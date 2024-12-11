@@ -8,10 +8,12 @@ export default async function SerieDetail( {params} ) {
 
     const { serieId } = params;
     const type = 'tv';
-    const serie = await getDetails(serieId, type);
-    const credits = await getMediaCredits(serieId, type);
-    const reviews = await getReviews(serieId, type);
-    const similarTitles = await getSimilarTitles(serieId, type);
+    const [serie, credits, reviews, similarTitles] = await Promise.all([
+        getDetails(serieId, type),
+        getMediaCredits(serieId, type),
+        getReviews(serieId, type),
+        getSimilarTitles(serieId, type),
+      ]);
 
     return(
         <>

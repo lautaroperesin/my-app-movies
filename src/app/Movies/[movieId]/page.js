@@ -8,17 +8,27 @@ export default async function MovieDetail({params}){
 
     const { movieId } = params;
     const type = 'movie';
-    const movie = await getDetails(movieId, type);
-    const credits = await getMediaCredits(movieId, type);
-    const reviews = await getReviews(movieId, type);
-    const similarTitles = await getSimilarTitles(movieId, type);
+    const [movie, credits, reviews, similarTitles] = await Promise.all([
+        getDetails(movieId, type),
+        getMediaCredits(movieId, type),
+        getReviews(movieId, type),
+        getSimilarTitles(movieId, type),
+      ]);
 
     return(
         <>
-        <DetailCard media={movie} type={type}/>
-        <CastSlider cast={credits} mediaId={movieId} mediaUrl='movies'/>
-        <HorizontalSlider media={similarTitles} type={type} title='SIMILAR TITLES'/>
-        <ReviewSection reviews={reviews}/>
+        <section>
+            <DetailCard media={movie} type={type}/>
+        </section>
+        <section>
+            <CastSlider cast={credits} mediaId={movieId} mediaUrl='movies'/>
+        </section>
+        <section>
+            <HorizontalSlider media={similarTitles} type={type} title='SIMILAR TITLES'/>
+        </section>
+        <section>
+            <ReviewSection reviews={reviews}/>
+        </section>
         </>
     )
 }

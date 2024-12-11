@@ -5,8 +5,11 @@ import HorizontalSlider from '@/components/HorizontalSlider';
 export default async function ActorPageSeries({ params }) {
 
     const { actorId } = params;
-    const actor = await getDetails(actorId, 'person');
-    const actorCredits = await getActorCredits(actorId, 'tv_credits');
+    const [actor, actorCredits] = await Promise.all([
+      getDetails(actorId, 'person'),
+      getActorCredits(actorId, 'movie_credits'),
+    ]);
+
   
     return (
       <>
