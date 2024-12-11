@@ -1,5 +1,5 @@
 .carousel-container{
-    @apply w-full flex justify-center items-center
+    @apply relative w-full max-w-4xl mx-auto px-4 py-8
 }
 
 .button-left{
@@ -7,4 +7,8 @@
 }
 .button-right{
     @apply absolute right-20 bg-gray-800 text-white p-5 rounded-full
+}
+
+.btn-moreinfo{
+    @apply bg-white font-semibold px-6 py-2 mt-3 rounded-full text-black hover:bg-red-100 transition-colors duration-300 shadow-md hover:shadow-lg
 }

@@ -10,4 +10,9 @@
 
 body{
     @apply bg-gradient-to-b from-black to-darkRed;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
 }

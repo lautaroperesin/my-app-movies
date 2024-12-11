@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import CardsGrid from '@/components/CardsGrid';
 import {getTopRatedMovies, getUpcomingMovies} from '@/utils/fetch-data';
@@ -13,10 +12,12 @@ export default function MoviesPage(){
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const upcomingResponse = await getUpcomingMovies();
-        setUpcomingMovies(upcomingResponse);
+        const [upcomingResponse, topRatedResponse] = await Promise.all([
+          getUpcomingMovies(),
+          getTopRatedMovies(),
+        ]);
 
-        const topRatedResponse = await getTopRatedMovies();
+        setUpcomingMovies(upcomingResponse);
         setTopRatedMovies(topRatedResponse);
 
         setLoading(false);
