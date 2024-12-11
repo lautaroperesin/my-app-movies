@@ -15,7 +15,7 @@ export default async function ActorPageMovies({ params }) {
     return (
       <>
       <ActorDetails actor={actor}/>
-      <HorizontalSlider media={actorCredits.cast} type='movie' title='MOVIES IN WICH HE PARTICIPED'/>
+      <HorizontalSlider media={actorCredits} type='movie' title='MOVIES IN WICH HE PARTICIPED'/>
       </>
     );
   }

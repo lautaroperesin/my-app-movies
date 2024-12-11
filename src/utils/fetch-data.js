@@ -44,12 +44,6 @@ export async function getOnTheAirSeries(){
     return results;
 }
 
-export async function getAiringTodaySeries(){
-    const response = await fetch('https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1&api_key=9bc55808c3aabf92be422d07aefbe9c5', getAuthOptions());
-    const {results} = await response.json();
-    return results;
-}
-
 export async function getDetails(id, type){
     const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}?language=en-US&api_key=9bc55808c3aabf92be422d07aefbe9c5`, getAuthOptions());
     return await response.json();
@@ -57,20 +51,24 @@ export async function getDetails(id, type){
 
 export async function getMediaCredits(id, type){
     const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?language=en-US&api_key=9bc55808c3aabf92be422d07aefbe9c5`, getAuthOptions());
-    return await response.json();
+    const {cast} = await response.json();
+    return cast;
 }
 
 export async function getReviews(id, type){
     const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/reviews?language=en-US&page=1&api_key=9bc55808c3aabf92be422d07aefbe9c5`, getAuthOptions());
-    return await response.json();
+    const {results} = await response.json();
+    return results;
 }
 
 export async function getSimilarTitles(id, type){
     const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/similar?language=en-US&page=1&api_key=9bc55808c3aabf92be422d07aefbe9c5`, getAuthOptions());
-    return await response.json();
+    const {results} = await response.json();
+    return results;
 }
 
 export async function getActorCredits(id, type){
     const response = await fetch(`https://api.themoviedb.org/3/person/${id}/${type}?language=en-US&api_key=9bc55808c3aabf92be422d07aefbe9c5`, getAuthOptions());
-    return await response.json();
+    const {cast} = await response.json();
+    return cast;
 }

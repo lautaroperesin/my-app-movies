@@ -1,8 +1,8 @@
 export default function ActorDetails({ actor }) {
   
     return (
-      <div className="bg-black text-red-900 min-h-screen p-6">
-        <div className="max-w-4xl mx-auto bg-neutral-900 rounded-lg shadow-xl overflow-hidden">
+      <div className="p-6">
+        <div className="max-w-4xl mx-auto bg-darkRed rounded-lg shadow-xl overflow-hidden text-white">
           <div className="grid md:grid-cols-3 gap-6 p-6">
             {/* Foto del actor */}
             <div className="md:col-span-1">
@@ -15,7 +15,7 @@ export default function ActorDetails({ actor }) {
             
             {/* Detalles del actor */}
             <div className="md:col-span-2">
-              <h1 className="text-4xl font-bold text-[#ff4136] mb-4">{actor.name}</h1>
+              <h1 className="text-4xl font-bold text-white mb-4">{actor.name}</h1>
               
               <div className="space-y-3 mb-6">
                 <div className="flex items-center text-white">
@@ -30,8 +30,8 @@ export default function ActorDetails({ actor }) {
               </div>
               
               {/* Biografia */}
-              <div className="bg-neutral-800 p-4 rounded-lg mb-6">
-                <h2 className="text-2xl text- text-[#ff4136] mb-3">Biography</h2>
+              <div className="p-4 rounded-lg mb-6">
+                <h2 className="text-2xl mb-3">Biography</h2>
                 <p className="text-white">
                   {actor.biography || 'No biographical information available.'}
                 </p>
