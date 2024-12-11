@@ -9,5 +9,5 @@
 
 
 body{
-    @apply bg-gradient-to-b from-[#000000] to-[#310000]
+    @apply bg-gradient-to-b from-black to-darkRed;
 }

@@ -1,13 +1,17 @@
 import { getDetails, getActorCredits } from '@/utils/fetch-data';
 import ActorDetails from '@/components/ActorDetails';
+import HorizontalSlider from '@/components/HorizontalSlider';
 
-export default async function ActorPage({ params }) {
+export default async function ActorPageSeries({ params }) {
 
     const { actorId } = params;
     const actor = await getDetails(actorId, 'person');
-    const actorCredits = await getActorCredits(actorId);
+    const actorCredits = await getActorCredits(actorId, 'tv_credits');
   
     return (
-      <ActorDetails actor={actor} credits={actorCredits.cast}/>
+      <>
+      <ActorDetails actor={actor} />
+      <HorizontalSlider media={actorCredits.cast} type='tv' title='SERIES IN WICH HE PARTICIPED'/>
+      </>
     );
   }

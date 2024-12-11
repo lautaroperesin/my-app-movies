@@ -21,9 +21,9 @@ export default async function Home() {
 
       <HorizontalSlider media={popularMovies} type='movie' title='POPULAR MOVIES'/>
 
-      <HorizontalSlider media={popularSeries} type='serie' title='POPULAR SERIES'/>
+      <HorizontalSlider media={popularSeries} type='tv' title='POPULAR SERIES'/>
 
-      <HorizontalSlider media={topRatedSeries} type='serie' title='TOP RATED SERIES'/>
+      <HorizontalSlider media={topRatedSeries} type='tv' title='TOP RATED SERIES'/>
     </>
   );
 }

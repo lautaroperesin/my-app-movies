@@ -29,7 +29,7 @@ export default function Series(){
     }, []);
 
     if (loading) {
-        return <div className="text-center text-2xl mt-10">Loading series...</div>;
+        return <div className="text-center text-2xl mt-10 text-white">Loading series...</div>;
     }
 
     return (

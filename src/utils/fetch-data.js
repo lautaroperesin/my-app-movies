@@ -55,7 +55,7 @@ export async function getDetails(id, type){
     return await response.json();
 }
 
-export async function getCredits(id, type){
+export async function getMediaCredits(id, type){
     const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?language=en-US&api_key=9bc55808c3aabf92be422d07aefbe9c5`, getAuthOptions());
     return await response.json();
 }
@@ -70,7 +70,7 @@ export async function getSimilarTitles(id, type){
     return await response.json();
 }
 
-export async function getActorCredits(id){
-    const response = await fetch(`https://api.themoviedb.org/3/person/${id}/combined_credits?language=en-US&api_key=9bc55808c3aabf92be422d07aefbe9c5`, getAuthOptions());
+export async function getActorCredits(id, type){
+    const response = await fetch(`https://api.themoviedb.org/3/person/${id}/${type}?language=en-US&api_key=9bc55808c3aabf92be422d07aefbe9c5`, getAuthOptions());
     return await response.json();
 }

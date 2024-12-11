@@ -1,6 +1,4 @@
-import HorizontalSlider from "../HorizontalSlider";
-
-export default function ActorDetails({ actor, credits }) {
+export default function ActorDetails({ actor }) {
   
     return (
       <div className="bg-black text-red-900 min-h-screen p-6">
@@ -40,7 +38,6 @@ export default function ActorDetails({ actor, credits }) {
               </div>
             </div>
           </div>
-          <HorizontalSlider media={credits} title='ALSO PARTICIPATED'/>
         </div>
       </div>
     );
