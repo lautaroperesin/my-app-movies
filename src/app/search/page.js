@@ -4,29 +4,26 @@ import { useState } from 'react';
 import SearchBar from '../../components/SearchBar';
 import Link from 'next/link';
 
-
 export default function SearchPage() {
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
     const handleSearch = async (query) => {
       setIsLoading(true);
-      console.log('Buscando:', query);
       const res = await fetch(
         `https://api.themoviedb.org/3/search/multi?query=${query}&api_key=9bc55808c3aabf92be422d07aefbe9c5&language=en-US`
       );
-      const data = await res.json();
-      setResults(data.results);
+      const {results} = await res.json();
+      setResults(results);
       setIsLoading(false);
       };
 
-      //obtener url
       const getLink = (item) => {
         return item.media_type === 'movie' ? `/movies/${item.id}`
         : item.media_type === 'tv' ? `/series/${item.id}`
         : `movies/x/cast/${item.id}`;
       }
-  
+
     return (
       <div className="search-container">
         <div className="search-input-container">
